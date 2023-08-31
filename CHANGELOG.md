@@ -1,5 +1,13 @@
 # @ts-collections/ts-collections
 
+## 0.2.0
+
+### Minor Changes
+
+- 7f15262: - migrated from jest to vitest
+  - added test cases for linked list
+  - bug fixes for linked list
+
 ## 0.1.1
 
 ### Patch Changes
