@@ -1,0 +1,30 @@
+name: 🔖 Documentation Update
+description: Improve Documentation
+title: "docs: "
+labels: ["📚 documentation", "🕵🏼‍♂️ goal: improvement", "good first issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this documentation update template!
+  - type: textarea
+    id: improve-docs
+    attributes:
+      label: describe the changes you want to make in the documentation?
+      description: which things need to add?
+      placeholder: Add descriptions
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Add screenshots (if any)
+      description: Add screenshots to see the demo
+      placeholder: Add screenshots
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
