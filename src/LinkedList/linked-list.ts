@@ -17,17 +17,20 @@ export class LinkedListNode<T> {
 /**
  * Implementation of doubly linked list
  */
-export class LinkedList<T> {
+export class LinkedList<T> implements Iterable<T> {
 	length: number;
 	head: LinkedListNode<T> | null;
 	tail: LinkedListNode<T> | null;
 
 	constructor(values?: Iterable<T>) {
 		this.length = 0;
-		this.head = null;
-		this.tail = null;
-		if (!values) return this;
-		for (const value of values) this.addLast(value);
+		this.head = this.tail = null;
+		if (!values) {
+			return;
+		}
+		for (const value of values) {
+			this.addLast(value);
+		}
 	}
 
 	get(index: number) {
@@ -36,11 +39,18 @@ export class LinkedList<T> {
 		}
 
 		let temp = this.head;
-		while (index > 0 && temp != null) {
+		while (index > 0) {
+			if (!temp) {
+				return null;
+			}
 			temp = temp.next;
+			index--;
 		}
 
-		return temp?.value ?? null;
+		if (!temp) {
+			return null;
+		}
+		return temp.value;
 	}
 
 	addFirst(value: T): void {
@@ -49,6 +59,7 @@ export class LinkedList<T> {
 		if (this.head == null || this.tail == null) {
 			this.head = this.tail = node;
 			this.length = 1;
+			return;
 		}
 
 		this.head.prev = node;
@@ -62,6 +73,7 @@ export class LinkedList<T> {
 		if (this.head == null || this.tail == null) {
 			this.head = this.tail = node;
 			this.length = 1;
+			return;
 		}
 
 		this.tail.next = node;
@@ -91,7 +103,38 @@ export class LinkedList<T> {
 		return temp.value;
 	}
 
+	delete(index: number) {
+		if (index < 0 || index >= this.length) {
+			return null;
+		}
+
+		let temp = this.head;
+		while (index > 1) {
+			temp = temp?.next ?? null;
+			index--;
+		}
+		this.length--;
+		return temp ?? null;
+	}
+
+	// TODO: implement this
 	reverse() {}
+
+	[Symbol.iterator]() {
+		let temp = this.head;
+		const iterator: Iterator<T> = {
+			next(): IteratorResult<T> {
+				if (temp === null) {
+					return { value: undefined, done: true };
+				} else {
+					const value = temp.value;
+					temp = temp.next;
+					return { value, done: false };
+				}
+			},
+		};
+		return iterator;
+	}
 
 	toString(callback?: (value: T) => string, delimiter?: string): string {
 		let message = "HEAD" + (delimiter ?? " <-> ");
