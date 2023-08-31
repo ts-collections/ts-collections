@@ -1,6 +1,6 @@
 {
   "name": "@ts-collections/ts-collections",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Samyabrata Maji",
   "description": "A library containing implementations of popular data structures.",
   "keywords": [],
