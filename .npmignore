@@ -16,3 +16,6 @@ CHANGELOG*
 README*
 pnpm-lock.yaml
 tsconfig.json
+
+./coverage
+jest.config.js
