@@ -1,18 +1,25 @@
-.changeset
-.devcontainer
-.github
-.husky
+# Exclude development and test-related files and folders
+.changeset/
+.devcontainer/
+.github/
+.husky/
+out/
+tests/
+src/
+scripts/
 
-out
-tests
-src
-scripts
-
+# Exclude files starting with .env, .gitignore, .eslintrc.js, and .prettier
 .env*
 .gitignore
 .eslintrc.js
 .prettier*
+
+# Exclude files matching patterns like CHANGELOG*, README*, pnpm-lock.yaml, and tsconfig.json
 CHANGELOG*
 README*
 pnpm-lock.yaml
 tsconfig.json
+
+# Exclude coverage folder and jest.config.js file
+.coverage/
+jest.config.js
