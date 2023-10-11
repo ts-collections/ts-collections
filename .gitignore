@@ -1,8 +1,12 @@
+# Ignore node_modules, build output, and code coverage reports
 node_modules
 dist
 out
+coverage
 
+# Ignore .tgz files
+*.tgz
+
+# Allow .env.example to be tracked, but ignore other .env files
 !.env.example
 *.env*
-
-*.tgz
