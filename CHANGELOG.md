@@ -1,5 +1,12 @@
 # @ts-collections/ts-collections
 
+## 0.2.2
+
+### Patch Changes
+
+- 1d0efa3: - added "coverage" folder to .gitignore
+  - added "coverage" & jest.config.js to .npmignore
+
 ## 0.2.1
 
 ### Patch Changes
